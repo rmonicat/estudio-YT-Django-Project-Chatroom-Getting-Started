@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -49,14 +50,18 @@
 
 
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
-
-        const chatSocket = new WebSocket(
-            'ws://' +
-            window.location.host +
-            '/ws/chat/' +
-            roomName +
-            '/'
-        );
+        let url1 = 'ws://localhost:7000/ws/chat/a1/';
+        const chatSocket = new WebSocket(url1);
+        let url2 = 'ws://localhost:7000/ws/chat/a2/';
+        const chatSocket2 = new WebSocket(url2);           
+//            'ws://' +
+//            '127.0.0.1:7000' +
+//            window.location.host +
+//            '/ws/chat/' +
+//            'a1' +
+//            roomName +
+//            '/'
+//        );
 
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
